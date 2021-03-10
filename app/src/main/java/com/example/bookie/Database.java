@@ -18,7 +18,8 @@ public class Database {
     public static abstract class APPOINTMENT implements BaseColumns{
         public static final String TABLE_NAME="APPOINTMENT";
         public static final String APPOINTMENT_ID="APPOINTMENT_ID";
-        public static final String USER_ID_FK="USER_NAME_FK";
+      //  public static final String USER_ID_FK="USER_ID_FK";
+        public static final String USER_NAME_FK="USER_NAME_FK";
         public static final String TOPIC_NAME="TOPIC_NAME_FK";
         public static final String COUNSELOR_NAME="COUNSELOR_NAME";
         public static final String TIME="TIME";
