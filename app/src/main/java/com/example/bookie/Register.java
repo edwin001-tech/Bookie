@@ -33,7 +33,7 @@ public class Register extends AppCompatActivity {
          login = findViewById(R.id.idLogin);
 
          databaseHelper = new DatabaseHelper(this);
-         db = databaseHelper.getReadableDatabase();
+
 
          login.setOnClickListener(new View.OnClickListener() {
              @Override
@@ -46,6 +46,8 @@ public class Register extends AppCompatActivity {
     }
 
     public void InsertData(View view) {
+
+        db = databaseHelper.getReadableDatabase();
 
         name = findViewById(R.id.idName);
         phone = findViewById(R.id.idPhone);
