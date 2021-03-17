@@ -14,7 +14,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String CREATE_TABLE_USERS = "CREATE TABLE "
             + Database.USERS.TABLE_NAME + " ("
             + Database.USERS.ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-            + Database.USERS.NAME + " TEXT NOT NULL,"
+            + Database.USERS.USER_NAME + " TEXT NOT NULL,"
             + Database.USERS.EMAIL + " TEXT NOT NULL,"
             + Database.USERS.PHONE + " TEXT NOT NULL,"
             + Database.USERS.PASSWORD + " TEXT NOT NULL)";
@@ -22,11 +22,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String CREATE_TABLE_APPOINTMENT = "CREATE TABLE "
             + Database.APPOINTMENT.TABLE_NAME + " ("
             + Database.APPOINTMENT.APPOINTMENT_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-            + Database.APPOINTMENT.TOPIC_NAME + " TEXT NOT NULL,"
             + Database.APPOINTMENT.COUNSELOR_NAME + " TEXT NOT NULL,"
             + Database.APPOINTMENT.TIME + " TEXT NOT NULL,"
+            + Database.APPOINTMENT.USER_NAME_FK + " TEXT NOT NULL,"
+            + Database.APPOINTMENT.TOPIC_NAME_FK + " TEXT NOT NULL,"
             + "FOREIGN KEY(" + Database.APPOINTMENT.USER_NAME_FK + ") REFERENCES USERS(USER_NAME),"
-            + "FOREIGN KEY(" +Database.APPOINTMENT.TOPIC_NAME + ") REFERENCES TOPIC(TOPIC_NAME)"
+            + "FOREIGN KEY(" +Database.APPOINTMENT.TOPIC_NAME_FK + ") REFERENCES TOPIC(TOPIC_NAME)"
             + ")";
 
     public static final String CREATE_TABLE_TOPIC = "CREATE TABLE "

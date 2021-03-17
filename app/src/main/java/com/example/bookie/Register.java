@@ -63,7 +63,7 @@ public class Register extends AppCompatActivity {
         //insert values into the db
 
         ContentValues values = new ContentValues();
-        values.put(Database.USERS.NAME, valueName);
+        values.put(Database.USERS.USER_NAME, valueName);
         values.put(Database.USERS.PHONE, valuePhone);
         values.put(Database.USERS.EMAIL, valueEmail);
         values.put(Database.USERS.PASSWORD, valuePassword);
