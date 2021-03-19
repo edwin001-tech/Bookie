@@ -43,37 +43,70 @@ public class Register extends AppCompatActivity {
              }
          });
 
+
+         register.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View view) {
+                 db = databaseHelper.getReadableDatabase();
+
+                 name = findViewById(R.id.idName);
+                 phone = findViewById(R.id.idPhone);
+                 email = findViewById(R.id.idEmail);
+                 password = findViewById(R.id.idPassword);
+
+                 //get input from the EditText views
+                 String valueName = name.getText().toString();
+                 String valuePhone = phone.getText().toString();
+                 String valueEmail = email.getText().toString();
+                 String valuePassword = password.getText().toString();
+
+                 //insert values into the db
+
+                 ContentValues values = new ContentValues();
+                 values.put(Database.USERS.USER_NAME, valueName);
+                 values.put(Database.USERS.PHONE, valuePhone);
+                 values.put(Database.USERS.EMAIL, valueEmail);
+                 values.put(Database.USERS.PASSWORD, valuePassword);
+
+                 long newRowId = db.insert(TABLE_NAME, null, values);
+//                 if (newRowId > 0) {
+//                     Toast.makeText( "New Record Inserted: ", Toast.LENGTH_SHORT).show();
+//                 }
+                 db.close();
+             }
+         });
+
     }
 
-    public void InsertData(View view) {
-
-        db = databaseHelper.getReadableDatabase();
-
-        name = findViewById(R.id.idName);
-        phone = findViewById(R.id.idPhone);
-        email = findViewById(R.id.idEmail);
-        password = findViewById(R.id.idPassword);
-
-        //get input from the EditText views
-        String valueName = name.getText().toString();
-        String valuePhone = phone.getText().toString();
-        String valueEmail = email.getText().toString();
-        String valuePassword = password.getText().toString();
-
-        //insert values into the db
-
-        ContentValues values = new ContentValues();
-        values.put(Database.USERS.USER_NAME, valueName);
-        values.put(Database.USERS.PHONE, valuePhone);
-        values.put(Database.USERS.EMAIL, valueEmail);
-        values.put(Database.USERS.PASSWORD, valuePassword);
-
-        long newRowId = db.insert(TABLE_NAME, null, values);
-        if (newRowId > 0) {
-            Toast.makeText(this, "New Record Inserted: ", Toast.LENGTH_SHORT).show();
-        }
-        db.close();
-
-
-    }
+//    public void InsertData(View view) {
+//
+//        db = databaseHelper.getReadableDatabase();
+//
+//        name = findViewById(R.id.idName);
+//        phone = findViewById(R.id.idPhone);
+//        email = findViewById(R.id.idEmail);
+//        password = findViewById(R.id.idPassword);
+//
+//        //get input from the EditText views
+//        String valueName = name.getText().toString();
+//        String valuePhone = phone.getText().toString();
+//        String valueEmail = email.getText().toString();
+//        String valuePassword = password.getText().toString();
+//
+//        //insert values into the db
+//
+//        ContentValues values = new ContentValues();
+//        values.put(Database.USERS.USER_NAME, valueName);
+//        values.put(Database.USERS.PHONE, valuePhone);
+//        values.put(Database.USERS.EMAIL, valueEmail);
+//        values.put(Database.USERS.PASSWORD, valuePassword);
+//
+//        long newRowId = db.insert(TABLE_NAME, null, values);
+//        if (newRowId > 0) {
+//            Toast.makeText(this, "New Record Inserted: ", Toast.LENGTH_SHORT).show();
+//        }
+//        db.close();
+//
+//
+//    }
 }
