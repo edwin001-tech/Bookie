@@ -33,6 +33,7 @@ public class Register extends AppCompatActivity {
          login = findViewById(R.id.idLogin);
 
          databaseHelper = new DatabaseHelper(this);
+        db = databaseHelper.getReadableDatabase();
 
 
          login.setOnClickListener(new View.OnClickListener() {
@@ -68,9 +69,11 @@ public class Register extends AppCompatActivity {
                  values.put(Database.USERS.EMAIL, valueEmail);
                  values.put(Database.USERS.PASSWORD, valuePassword);
 
-                 long newRowId = db.insert(TABLE_NAME, null, values);
+                 db.insert(TABLE_NAME, null, values);
+
+//                 long newRowId = db.insert(TABLE_NAME, null, values);
 //                 if (newRowId > 0) {
-//                     Toast.makeText( "New Record Inserted: ", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(this, "New Record Inserted: ", Toast.LENGTH_SHORT).show();
 //                 }
                  db.close();
              }

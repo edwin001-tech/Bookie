@@ -61,15 +61,15 @@ public class MainActivity extends AppCompatActivity {
 
                 db = databaseHelper.getReadableDatabase();
 
-                final String[] columns = {Database.USERS.USER_NAME, Database.USERS.EMAIL, Database.USERS.PASSWORD, Database.USERS.PHONE};
+                final String[] columns = {Database.USERS.USER_NAME, Database.USERS.EMAIL, Database.USERS.PHONE, Database.USERS.PASSWORD};
                 Cursor c = db.query(Database.USERS.TABLE_NAME, null, null, null, null, null, null);
-                while (c.moveToNext()) ;
+                while (c.moveToNext()) 
                 {
                     String user_id = c.getString(c.getColumnIndex(Database.USERS.ID));
                     String user_name = c.getString(c.getColumnIndex(Database.USERS.USER_NAME));
 
-                    String user_email = c.getString(1);
-                    String user_password = c.getString(2);
+                    String user_email = c.getString(2);
+                    String user_password = c.getString(4);
                     if (user_email.equalsIgnoreCase(email.getText().toString()) && user_password.equalsIgnoreCase(password.getText().toString())) {
 
                         Toast.makeText(getApplicationContext(), "logged in", Toast.LENGTH_LONG).show();
