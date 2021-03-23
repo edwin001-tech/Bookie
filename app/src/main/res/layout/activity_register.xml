@@ -67,7 +67,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="171dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="171dp"
         android:text="Register"
         android:textSize="22sp"
@@ -79,17 +79,21 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="171dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="171dp"
         android:text="OR"
         android:textSize="18sp"
-        tools:layout_editor_absoluteX="179dp"
-        tools:layout_editor_absoluteY="423dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/idRegister" />
 
     <TextView
         android:id="@+id/idLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="171dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="171dp"
         android:text="Already have an account? Login"
         android:textSize="22sp"
