@@ -75,6 +75,8 @@ public class Register extends AppCompatActivity {
 //                 if (newRowId > 0) {
 //                    Toast.makeText(this, "New Record Inserted: ", Toast.LENGTH_SHORT).show();
 //                 }
+                 Intent intent = new Intent(Register.this, MainActivity.class);
+                 startActivity(intent);
                  db.close();
              }
          });
